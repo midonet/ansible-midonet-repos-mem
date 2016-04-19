@@ -1,17 +1,14 @@
-[![Build Status](https://travis-ci.org/midonet/ansible-midonet-repos.svg?branch=master)](https://travis-ci.org/midonet/ansible-midonet-repos)
-[![Build Status](https://drone.io/github.com/midonet/ansible-midonet-repos/status.png)](https://drone.io/github.com/midonet/ansible-midonet-repos/latest)
+ansible-midonet-repos-mem
+=========================
 
-Role Name
-=========
-
-Ansible playbook for midonet OSS repositories.
+Ansible playbook for Midonet MEM repositories.
 
 Installation
 ------------
 
 This role requires at least Ansible v1.6
 
-    ansible-galaxy install abelboldu.midonet-repos
+    ansible-galaxy install midonet.midonet-repos-mem
 
 Role Variables
 --------------
@@ -19,23 +16,25 @@ Role Variables
 Default variables:
 
     --
+    mem_version   : 5
+    mem_release   : stable
 
-    midonet_version   : current
-    midonet_release   : stable
-    openstack_version : juno
-    plugin_release    : stable
 
+Also, `mem_user` and `mem_password` variables are required to access MEM private
+repositories.
+
+Contact [Midokura](http://www.midokura.com/about-midokura/contact)  to get your credentials.
 
 Example Playbook
 ----------------
 
     - hosts: server
       roles:
-         - role: abelboldu.ansible-repos
-		   midonet_version: 2015.03
+        - role: midonet.midonet-repos-mem
+          mem_user: BobDobbs
+          mem_password: DemoPassword
 
 License
 -------
 
 Apache 2.0
-
