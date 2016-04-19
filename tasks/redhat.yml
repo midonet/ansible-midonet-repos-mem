@@ -1,0 +1,6 @@
+---
+
+- name: Add Midokura MEM repos
+  template:
+    src: midokura-mem.repo.j2
+    dest: /etc/yum.repos.d/midokura-mem.repo

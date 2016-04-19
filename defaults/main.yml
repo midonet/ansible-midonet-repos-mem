@@ -1,0 +1,9 @@
+---
+
+mem_base_url  : "https://{{ mem_user }}:{{ mem_password }}@builds.midonet.org"
+mem_version   : "5"
+mem_release   : "stable"
+
+# Demo credentials, contact sales@midokura.com.
+mem_user      : "demouser"
+mem_password  : "demopassword"

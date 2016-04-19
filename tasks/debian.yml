@@ -1,0 +1,11 @@
+---
+
+- name: Add Midokura MEM repos
+  template:
+    src: midokura-mem.list.j2
+    dest: /etc/apt/sources.list.d/midokura-mem.list
+
+- name: Add Midokura repos key
+  apt_key:
+    url: "{{ mem_base_url }}/midorepo.key"
+  retries: 3

@@ -1,0 +1,29 @@
+---
+- hosts: localhost
+  remote_user: root
+  pre_tasks:
+    - name: installing repo for Java 8 in Ubuntu
+      apt_repository: repo='ppa:openjdk-r/ppa'
+      when: "ansible_os_family == 'Debian'"
+  roles:
+    - role: geerlingguy.java
+      when: "ansible_os_family == 'Debian'"
+      java_packages:
+        - openjdk-8-jdk
+    - role: geerlingguy.java
+      when: "ansible_os_family == 'RedHat'"
+      java_packages:
+        - java-1.8.0-openjdk
+    - role: ansible-midonet-repos-mem
+      mem_user: BobDobbs
+      mem_password: DemoPassword
+  post_tasks:
+      - name: Install package
+        apt:
+          name: midonet-jmxscraper
+          state: present
+        when: "ansible_os_family == 'Debian'"
+      - name: Install package
+        yum:
+          name: midonet-jmxscraper
+          state: present

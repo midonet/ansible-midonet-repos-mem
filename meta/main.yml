@@ -1,0 +1,20 @@
+---
+galaxy_info:
+  author: Abel Boldú
+  description: Midonet MEM repositories
+  company: Midokura
+  license: Apache
+  min_ansible_version: 1.6
+  platforms:
+  - name: EL
+    versions:
+    - 6
+    - 7
+  - name: Ubuntu
+    versions:
+    - precise
+    - trusty
+  categories:
+  - cloud
+  - networking
+dependencies: []
